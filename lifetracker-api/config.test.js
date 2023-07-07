@@ -1,38 +1,39 @@
-const { 
-    PORT, 
-    SECRET_KEY, 
-    BCRYPT_WORK_FACTOR, 
-    IS_TESTING,
-    getDatabaseUri 
-} = require('./config');
+const config = require('./config');
 
-describe("config", function () {
-    test("check environment variables are imported correctly", function () {
-        expect(PORT).toBeDefined();
-        expect(SECRET_KEY).toBeDefined();
-        expect(BCRYPT_WORK_FACTOR).toBeDefined();
-        expect(IS_TESTING).toBeDefined();
-    });
+describe('config tests', () => {
+  test('process.env.NODE_ENV is set to test', () => {
+    expect(process.env.NODE_ENV).toBe('test');
+  });
 
-    test("process.env.NODE_ENV is set to test", function () {
-        expect(process.env.NODE_ENV).toBe('test');
-    });
+  test('IS_TESTING is true when process.env.NODE_ENV is test', () => {
+    expect(config.IS_TESTING).toBe(true);
+  });
 
-    test("IS_TESTING variable is true when NODE_ENV is set to test", function () {
-        expect(IS_TESTING).toBe(true);
-    });
+  test('PORT, SECRET_KEY, BCRYPT_WORK_FACTOR, IS_TESTING are exported', () => {
+    expect(config.PORT).toBeDefined();
+    expect(config.SECRET_KEY).toBeDefined();
+    expect(config.BCRYPT_WORK_FACTOR).toBeDefined();
+    expect(config.IS_TESTING).toBeDefined();
+  });
 
-    test("getDatabaseUri function is exported", function () {
-        expect(getDatabaseUri).toBeDefined();
-    });
+  test('getDatabaseUri function is exported', () => {
+    expect(typeof config.getDatabaseUri).toBe('function');
+  });
 
-    test("getDatabaseUri returns correct URL", function () {
-        if (process.env.DATABASE_URL) {
-            expect(getDatabaseUri()).toBe(process.env.DATABASE_URL);
-        } else if (IS_TESTING === true) {
-            expect(getDatabaseUri()).toBe('postgresql://postgres:postgres@postgres:postgres/lifetracker_test');
-        } else {
-            expect(getDatabaseUri()).toBe('postgresql://localhost:5432/<lifetracker>');
-        }
-    });
+  test('getDatabaseUri uses DATABASE_URL if it exists', () => {
+    process.env.DATABASE_URL = 'postgres://localhost:5432/test_db';
+    expect(config.getDatabaseUri()).toBe(process.env.DATABASE_URL);
+  });
+
+  test('getDatabaseUri uses test database when IS_TESTING is true', () => {
+    delete process.env.DATABASE_URL;
+    config.IS_TESTING = true;
+    expect(config.getDatabaseUri()).toBe('postgres://localhost:5432/lifetracker_test');
+  });
+
+  test('getDatabaseUri constructs database URI correctly', () => {
+    delete process.env.DATABASE_URL;
+    config.IS_TESTING = false;
+    expect(config.getDatabaseUri()).toBe('postgres://localhost:5432/lifetracker');
+  });
 });

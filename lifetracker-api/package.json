@@ -8,7 +8,7 @@
     "dev-win": "set NODE_ENV=dev && nodemon --ignore 'db/*' server.js",
     "dev": "NODE_ENV=dev nodemon --ignore 'db/*' server.js",
     "test": "jest"
-},
+  },
   "dependencies": {
     "bcrypt": "^5.1.0",
     "colors": "^1.4.0",
