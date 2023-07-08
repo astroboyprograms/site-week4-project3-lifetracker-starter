@@ -1,0 +1,35 @@
+.login-form {
+    margin: auto;
+    width: 50%;
+    font-family: 'Montserrat', sans-serif;
+    background-color: var(--white);
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 0 10px var(--lightgrey);
+}
+  
+.form-input {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid var(--grey);
+    font-family: 'Montserrat', sans-serif;
+}
+  
+.error {
+    color: red;
+    font-family: 'Montserrat', sans-serif;
+}
+  
+.submit-login {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    border-radius: 5px;
+    border: none;
+    background-color: var(--primary);
+    color: var(--white);
+    font-family: 'Montserrat', sans-serif;
+    cursor: pointer;
+}

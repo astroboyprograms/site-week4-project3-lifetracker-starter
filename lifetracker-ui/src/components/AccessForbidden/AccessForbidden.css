@@ -1,0 +1,20 @@
+.access-forbidden {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  color: var(--darkgrey);
+  background-color: var(--lightgrey);
+  font-family: 'Montserrat', sans-serif;
+}
+
+.access-forbidden h1 {
+  font-size: 3em;
+  color: var(--primary);
+}
+
+.access-forbidden p {
+  font-size: 1.2em;
+  color: var(--secondary);
+}

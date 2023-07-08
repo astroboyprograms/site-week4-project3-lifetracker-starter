@@ -1,0 +1,55 @@
+.landing-page {
+    width: 100%;
+    height: 100vh;
+    background: transparent;
+  }
+  
+  .container {
+    max-width: 1240px;
+    padding: 0 1rem;
+    margin: auto;
+  }
+  
+  .content {
+    display: flex;
+  }
+
+  .hero {
+    display: flex;
+  }
+  
+  .cta {
+    padding: 1rem 1rem 1rem 0;
+    height: 70vh;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  
+  .hero-img {
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+  
+  .cta h1 {
+    font-size: 3rem;
+    font-weight: 700;
+    color: var(--darkgrey);
+  }
+  
+  .cta p {
+    font-size: 1rem;
+    color: var(--primary);
+    line-height: 1.4;
+    margin-top: 1.2rem;
+  }
+  
+  .hero-img img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 16px; 
+  }
+  
