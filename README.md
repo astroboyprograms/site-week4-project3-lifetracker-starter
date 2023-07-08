@@ -1,5 +1,12 @@
 # Project #3: LifeTracker Application
 
+
+<a href="https://www.loom.com/share/7e2504bad94348eebf608660b543455b">
+    <p>LifeTracker - 7 July 2023 - Watch Video</p>
+    <img style="max-width:300px;" src="https://cdn.loom.com/sessions/thumbnails/7e2504bad94348eebf608660b543455b-with-play.gif">
+  </a>
+  
+
 ## Overview
 
 > Data is the new oil - Clive Humbly
